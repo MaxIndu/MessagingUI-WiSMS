@@ -33,6 +33,7 @@ app.controller('MainCtrl', ['$scope','$filter', '$http', function($scope,$filter
     var conv = [];
     var uid = "person1";
     $scope.cont = "";
+    $scope.startTime = "Select a Conversation";
 
     $scope.lodeContent = function(id,name) {
         $http.get('data/conversations.json').success(function(data) {

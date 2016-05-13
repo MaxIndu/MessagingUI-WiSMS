@@ -156,7 +156,7 @@ body {
   margin-left: -1px;
   padding-top: 13px;
   border: 0;
-  background-color: #0095E8;
+  background-color: #AFE2FF;
   width: -moz-calc(100% + 2px);
   width: -webkit-calc(100% + 2px);
   width: -o-calc(100% + 2px);
@@ -174,7 +174,7 @@ body {
 .container .left .people .person.active span,
 .container .left .people .person:hover span,
 .container .left .people .person:focus span{
-  color: #fff;
+  color: #000;
 }
 .container .left .people .person.active:after,
 .container .left .people .person:hover:after,
