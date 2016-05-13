@@ -1,0 +1,484 @@
+//colors
+$color_indigo_approx: rgba(81, 113, 186, 1);
+$white: rgba(255, 255, 255, 1);
+$color_mercury_approx: rgba(230, 230, 230, 1);
+$color_athens_gray_approx: rgba(236, 239, 241, 1);
+$color_rangoon_green_approx: rgba(26, 26, 26, 1);
+$color_mountain_mist_approx: rgba(153, 153, 153, 1);
+$color_sail_approx: rgba(175, 226, 255, 1);
+$black: rgba(0, 0, 0, 1);
+$color_dodger_blue_approx: rgba(0, 176, 255, 1);
+
+//fonts
+$font_0: 'Source Sans Pro';
+$font_1: 'sans-serif';
+$font_2: 'Source Sans Pro';
+$font_3: 'sans-serif';
+$font_4: 'Source Sans Pro';
+$font_5: 'sans-serif';
+$font_6: 'Source Sans Pro';
+$font_7: 'sans-serif';
+$font_8: 'Source Sans Pro';
+$font_9: 'sans-serif';
+
+//urls
+$url_0: url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+$url_1: url('../img/bkg.jpg');
+$url_2: url('http://s1.postimg.org/s5gfy283f/attachemnt.png');
+$url_3: url('http://s14.postimg.org/q2ug83h7h/smiley.png');
+$url_4: url('http://s30.postimg.org/nz9dho0pp/send.png');
+
+//@extend-elements
+//original selectors
+//.container .left .people .person.active, .container .left .people .person:hover, .container .left .people .person:focus
+%extend_1 {
+  margin-top: -1px;
+  margin-left: -1px;
+  padding-top: 13px;
+  border: 0;
+  background-color: $color_sail_approx;
+  width: calc(100% + 2px);
+  padding-left: calc(10% + 1px);
+}
+
+//original selectors
+//.container .right .conversation-start span:before, .container .right .conversation-start span:after
+%extend_2 {
+  position: absolute;
+  top: 10px;
+  display: inline-block;
+  width: 30%;
+  height: 1px;
+  content: '';
+  background-color: $color_mercury_approx;
+}
+
+//original selectors
+//.animate-enter, .animate-leave
+%extend_3 {
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+  position: relative;
+  display: block;
+}
+
+//original selectors
+//.animate-enter.animate-enter-active, .animate-leave
+%extend_4 {
+  opacity: 1;
+  top: 0;
+  height: 30px;
+}
+
+//original selectors
+//.animate-leave.animate-leave-active, .animate-enter
+%extend_5 {
+  opacity: 0;
+  top: -30px;
+  height: 0;
+}
+
+
+@import $url_0;
+* {
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: border-box;
+}
+body {
+  text-rendering: optimizeLegibility;
+  font-family: $font_0, $font_1;
+  font-weight: 400;
+  background-size: cover;
+  background: $color_indigo_approx $url_1 no-repeat fixed;
+}
+.wrapper {
+  position: relative;
+  left: 50%;
+  width: 1000px;
+  height: 800px;
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate(-50%, 0);
+}
+.container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 75%;
+  background-color: $white;
+  //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+  transform: translate(-50%, -50%);
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 5px;
+  .left {
+    float: left;
+    width: 37.6%;
+    height: 100%;
+    border: 1px solid $color_mercury_approx;
+    background-color: $white;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 5px 0 0 5px;
+    .top {
+      position: relative;
+      width: 100%;
+      height: 96px;
+      padding: 29px;
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        display: block;
+        width: 80%;
+        height: 1px;
+        content: '';
+        background-color: $color_mercury_approx;
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: translate(-50%, 0);
+      }
+    }
+    input {
+      float: left;
+      width: 240px;
+      height: 42px;
+      padding: 0 30px;
+      border: 1px solid $color_mercury_approx;
+      background-color: $color_athens_gray_approx;
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 21px;
+      font-family: $font_2, $font_3;
+      font-weight: 400;
+      font-size: 14px;
+      &:focus {
+        outline: none;
+      }
+    }
+    .people {
+      margin-left: -1px;
+      border-right: 1px solid $color_mercury_approx;
+      border-left: 1px solid $color_mercury_approx;
+      width: calc(100% + 2px);
+      .person {
+        position: relative;
+        width: 100%;
+        padding: 12px 10% 16px;
+        cursor: pointer;
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          display: block;
+          width: 80%;
+          height: 1px;
+          content: '';
+          background-color: $color_mercury_approx;
+          //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+          transform: translate(-50%, 0);
+        }
+        img {
+          float: left;
+          width: 40px;
+          height: 40px;
+          margin-right: 12px;
+          //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+          border-radius: 50%;
+        }
+        .name {
+          font-size: 14px;
+          line-height: 22px;
+          color: $color_rangoon_green_approx;
+          font-family: $font_4, $font_5;
+          font-weight: 600;
+        }
+        .time {
+          font-size: 14px;
+          position: absolute;
+          top: 16px;
+          right: 10%;
+          padding: 0 0 5px 5px;
+          color: $color_mountain_mist_approx;
+          background-color: $white;
+          background: transparent;
+        }
+        .preview {
+          font-size: 14px;
+          display: inline-block;
+          overflow: hidden !important;
+          width: 70%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          color: $color_mountain_mist_approx;
+        }
+        &.active {
+          @extend %extend_1;
+          span {
+            color: $black;
+          }
+          &:after {
+            display: none;
+          }
+        }
+        &:hover {
+          @extend %extend_1;
+          span {
+            color: $black;
+          }
+          &:after {
+            display: none;
+          }
+        }
+        &:focus {
+          @extend %extend_1;
+          span {
+            color: $black;
+          }
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .right {
+    position: relative;
+    float: left;
+    width: 62.4%;
+    height: 100%;
+    .top {
+      width: 100%;
+      height: 47px;
+      padding: 15px 29px;
+      background-color: $color_athens_gray_approx;
+      //Instead of the line below you could use @include border-top-right-radius($radius)
+      border-top-right-radius: 5px;
+      span {
+        font-size: 15px;
+        color: $color_mountain_mist_approx;
+        .name {
+          color: $color_rangoon_green_approx;
+          font-family: $font_6, $font_7;
+          font-weight: 600;
+        }
+      }
+    }
+    .chat {
+      position: relative;
+      overflow: hidden;
+      padding: 30px 35px 35px;
+      border-width: 1px 1px 0 0;
+      border-style: solid;
+      border-color: $color_mercury_approx;
+      height: calc(100% - 48px);
+      justify-content: flex-end;
+      flex-direction: column;
+      &.active-chat {
+        display: flex;
+        .bubble {
+          //Instead of the line below you could use @include transition-timing-function($function-1, $function-2, $function-3, $function-4, $function-5, $function-6, $function-7, $function-8, $function-9, $function-10)
+          transition-timing-function: cubic-bezier(0.4, -0.04, 1, 1);
+          &:nth-of-type(1) {
+            animation-duration: 0.15s;
+          }
+          &:nth-of-type(2) {
+            animation-duration: 0.3s;
+          }
+          &:nth-of-type(3) {
+            animation-duration: 0.45s;
+          }
+          &:nth-of-type(4) {
+            animation-duration: 0.6s;
+          }
+          &:nth-of-type(5) {
+            animation-duration: 0.75s;
+          }
+          &:nth-of-type(6) {
+            animation-duration: 0.9s;
+          }
+          &:nth-of-type(7) {
+            animation-duration: 1.05s;
+          }
+          &:nth-of-type(8) {
+            animation-duration: 1.2s;
+          }
+          &:nth-of-type(9) {
+            animation-duration: 1.35s;
+          }
+          &:nth-of-type(10) {
+            animation-duration: 1.5s;
+          }
+        }
+      }
+    }
+    .write {
+      position: absolute;
+      bottom: 29px;
+      left: 30px;
+      height: 42px;
+      padding-left: 8px;
+      border: 1px solid $color_mercury_approx;
+      background-color: $color_athens_gray_approx;
+      width: calc(100% - 58px);
+      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+      border-radius: 5px;
+      input {
+        font-size: 16px;
+        float: left;
+        width: 347px;
+        height: 40px;
+        padding: 0 10px;
+        color: $color_rangoon_green_approx;
+        border: 0;
+        outline: none;
+        background-color: $color_athens_gray_approx;
+        font-family: $font_8, $font_9;
+        font-weight: 400;
+      }
+      .write-link {
+        &.attach:before {
+          display: inline-block;
+          float: left;
+          width: 20px;
+          height: 42px;
+          content: '';
+          background: $url_2 no-repeat center;
+        }
+        &.smiley:before {
+          display: inline-block;
+          float: left;
+          width: 20px;
+          height: 42px;
+          content: '';
+          background: $url_3 no-repeat center;
+        }
+        &.send:before {
+          display: inline-block;
+          float: left;
+          width: 20px;
+          height: 42px;
+          margin-left: 11px;
+          content: '';
+          background: $url_4 no-repeat center;
+        }
+      }
+    }
+    .bubble {
+      font-size: 14px;
+      position: relative;
+      display: inline-block;
+      clear: both;
+      margin-bottom: 8px;
+      padding: 12px 20px;
+      vertical-align: top;
+      line-height: 1.5;
+      &.you {
+        float: left;
+        color: $white;
+        background-color: $color_dodger_blue_approx;
+        align-self: flex-start;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 25px 25px 25px 0;
+        animation-name: slideFromLeft;
+      }
+      &.me {
+        float: right;
+        color: $color_rangoon_green_approx;
+        background-color: $color_athens_gray_approx;
+        align-self: flex-end;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 25px 25px 0 25px;
+        animation-name: slideFromRight;
+      }
+    }
+    .conversation-start {
+      position: relative;
+      width: 100%;
+      margin-bottom: 27px;
+      text-align: center;
+      span {
+        font-size: 14px;
+        display: inline-block;
+        color: $color_mountain_mist_approx;
+        &:before {
+          @extend %extend_2;
+          left: 0;
+        }
+        &:after {
+          @extend %extend_2;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+@keyframes slideFromLeft {
+  0% {
+    margin-left: -200px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideFromLeft {
+  0% {
+    margin-left: -200px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+  100% {
+    margin-left: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@keyframes slideFromRight {
+  0% {
+    margin-right: -200px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+  100% {
+    margin-right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideFromRight {
+  0% {
+    margin-right: -200px;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+  100% {
+    margin-right: 0;
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+}
+.credits {
+  color: $white;
+  font-size: 11px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+.animate-enter {
+  @extend %extend_3;
+  @extend %extend_5;
+  &.animate-enter-active {
+    @extend %extend_4;
+  }
+}
+.animate-leave {
+  @extend %extend_3;
+  @extend %extend_4;
+  &.animate-leave-active {
+    @extend %extend_5;
+  }
+}
