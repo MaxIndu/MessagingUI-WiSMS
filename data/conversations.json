@@ -1,0 +1,79 @@
+[
+	{
+		"id":"person1",
+		"start":"Today, 6:48 AM",
+		"messages":
+			[
+				{"from":"you", "msg":"Hello,"},
+				{"from":"you", "msg":"it's me."},
+				{"from":"you", "msg":"I was wondering..."}
+			]
+	},
+
+	{
+		"id":"person2",
+		"start":"Today, 5:38 PM", 
+		"messages":
+			[
+				{"from":"you", "msg":"Hello, can you hear me?"},
+				{"from":"you", "msg":"Im in California dreaming im not sure man this is mad, ar you suse that i'm mad"},
+				{"from":"me", "msg":"... about who we used to be."},
+				{"from":"me", "msg":"Are you serious?"},
+				{"from":"you", "msg":"When we were younger and free..."},
+				{"from":"you", "msg":"I've forgotten how it felt before"}
+			]
+	},
+
+	{
+		"id":"person3",
+		"start":"Today, 3:38 AM",
+		"messages":
+			[
+				{"from":"you", "msg":"Hey human!"},
+				{"from":"you", "msg":"Umm... Someone took a shit in the hallway."},
+				{"from":"me", "msg":"... what."},
+				{"from":"me", "msg":"Are you serious?"},
+				{"from":"you", "msg":"I mean..."},
+				{"from":"you", "msg":"It’s not that bad..."},
+				{"from":"you", "msg":"But we’re probably gonna need a new carpet."}
+		]
+	},
+	{
+		"id":"person4",
+		"start":"Yesterday, 4:20 PM",
+		"messages": 
+			[
+				{"from":"me", "msg":"Hey human!"},
+				{"from":"me", "msg":"Umm... Someone took a shit in the hallway."},
+				{"from":"you", "msg":"... what."},
+				{"from":"you", "msg":"Are you serious?"},
+				{"from":"me", "msg":"I mean..."},
+				{"from":"me", "msg":"It’s not that bad..."}
+		]
+	},
+
+	{
+		"id":"person5",
+		"start":"Today, 6:28 AM",
+		"messages":
+			[
+				{"from":"you", "msg":"Wasup"},
+				{"from":"you", "msg":"Wasup"},
+				{"from":"you", "msg":"Wasup for the third time like is you bling bitch"}
+		]
+	},
+
+	{
+		"id":"person6",
+		"start":"Monday, 1:27 PM",
+		"messages":
+			[
+				{"from":"you", "msg":"So, how's your new phone?"},
+				{"from":"you", "msg":"You finally have a smartphone :D"},
+				{"from":"you", "msg":"Drake?"},
+				{"from":"me", "msg":"Why aren't you answering?"},
+				{"from":"you", "msg":"howdoyoudoaspace"}
+			]
+	}
+
+]

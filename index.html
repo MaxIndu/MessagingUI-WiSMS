@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html ng-app="WiSMS">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>WiSMS</title>
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <script src="js/angular.js" type="text/javascript" charset="utf-8" async defer></script>
+
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="js/jquery.mousewheel.min.js" charset="utf-8" async defer></script>
+
+</head>
+
+<script type="text/javascript" charset="utf-8" async defer>
+
+var app = angular.module('WiSMS', []);
+
+app.controller('MainCtrl', ['$scope','$filter', '$http', function($scope,$filter, $http) {
+
+    $scope.contacts = [
+    {id: "person1", name:"Thomas Bangalter", time:"2:09 PM", preview:"I was wondering...", img:"http://s13.postimg.org/ih41k9tqr/img1.jpg"},
+    {id: "person2", name:"Dog Woofson", time:"1:44 PM", preview:"I've forgotten how it felt before", img:"http://s3.postimg.org/yf86x7z1r/img2.jpg"},
+    {id: "person3", name:"Louis CK", time:"2:09 PM", preview:"But we’re probably gonna need a new carpet.", img:"http://s3.postimg.org/h9q4sm433/img3.jpg"},
+    {id: "person4", name:"Bo Jackson", time:"2:09 PM", preview:"It’s not that bad...", img:"http://s3.postimg.org/quect8isv/img4.jpg"},
+    {id: "person5", name:"Michael Jordan", time:"2:09 PM", preview:"Wasup for the third time like is you bling bitch", img:"http://s16.postimg.org/ete1l89z5/img5.jpg"},
+    {id: "person6", name:"Drake", time:"2:09 PM", preview:"how do you do Aspace", img:"http://s30.postimg.org/kwi7e42rh/img6.jpg"}];
+
+    $scope.predicate = 'name';
+
+    var conv = [];
+    var uid = "person1";
+    $scope.cont = "";
+
+    $scope.lodeContent = function(id,name) {
+        $http.get('data/conversations.json').success(function(data) {
+            conv = data;
+            uid = id;
+
+            // Getting Relevant Conversations
+            var result = $filter('filter')(conv, {id:uid})[0];
+
+            // Setting variables in HTML
+            $scope.uname = name;
+            $scope.person = id;
+            $scope.startTime = result.start;
+            $scope.msgs = result.messages;
+
+        });
+    }
+
+    $scope.getClass =function (id) {
+        $scope.cont = id;
+    }
+
+    $scope.myObj = {
+        "margin-top" : "-1px",
+        "margin-left" : "-1px",
+        "padding-top" : "13px",
+        "border" : "0",
+        "background-color" : "#00b0ff",
+        "width" : "-moz-calc(100% + 2px)",
+        "width" : "-webkit-calc(100% + 2px)",
+        "width" : "-o-calc(100% + 2px)",
+        "width" : "calc(100% + 2px)",
+        "padding-left" : "-moz-calc(10% + 1px)",
+        "padding-left" : "-webkit-calc(10% + 1px)",
+        "padding-left" : "-o-calc(10% + 1px)",
+        "padding-left" : "calc(10% + 1px)",
+        "color" : "#fff"
+    }
+
+}]);
+
+</script>
+
+<body class="ng-scope" ng-controller="MainCtrl">
+<div class="wrapper">
+    <div class="container">
+        <div class="left">
+            <div class="top">
+                <input type="text" ng-model="userSearch.name" />
+            </div>
+            <div class="peopleContainer">
+                <ul class="people">
+                    <li class="person {{contact.id}}" ng-animate="animate"
+                        ng-repeat="contact in contacts | orderBy:predicate:reverse | filter:userSearch"
+                        ng-mousedown="lodeContent(contact.id, contact.name);"
+                        data-chat={{contact.id}}
+                        ng-click="getClass(contact.id)"
+                        ng-style="contact.id === cont ? myObj : '' "
+                    >
+                        <img src="{{contact.img}}" alt="image-{{contact.id}}" />
+                        <span class="name" ng-style="contact.id === cont ? {'color': '#fff'} : '' ">{{contact.name}}</span>
+                        <span class="time" ng-style="contact.id === cont ? {'color': '#fff'} : '' ">{{contact.time}}</span>
+                        <span class="preview" ng-style="contact.id === cont ? {'color': '#fff'} : '' ">{{contact.preview}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="top"><span>To: <span class="name">{{uname}}</span></span></div>
+            <div class="chatContainer">
+                <div class="chat" data-chat="{{person}}">
+                    <div class="conversation-start">
+                        <span>{{startTime}}</span>
+                    </div>
+                    <div ng-repeat="message in msgs" class="bubble {{message.from}}">{{message.msg}}</div>
+                </div>
+            </div>
+
+            <div class="write">
+                <a href="javascript:;" class="write-link attach"></a>
+                <input type="text" />
+                <a href="javascript:;" class="write-link smiley"></a>
+                <a href="javascript:;" class="write-link send"></a>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
