@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="WiSMS">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"  http-equiv="Content-Type" content="text/html; charset=utf-8; user-scalable=no; initial-scale=1;width=device-width"/>
+    <!--<meta content="width=device-width; initial-scale=1; user-scalable=no"/>-->
     <title>WiSMS</title>
 
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -86,7 +87,7 @@ app.controller('MainCtrl', ['$scope','$filter', '$http', function($scope,$filter
             </div>
             <div class="peopleContainer">
                 <ul class="people">
-                    <li class="person {{contact.id}}" ng-animate="animate"
+                    <li class="person " ng-animate="animate"
                         ng-repeat="contact in contacts | orderBy:predicate:reverse | filter:userSearch"
                         ng-mousedown="lodeContent(contact.id, contact.name);"
                         data-chat={{contact.id}}
@@ -105,7 +106,7 @@ app.controller('MainCtrl', ['$scope','$filter', '$http', function($scope,$filter
         <div class="right">
             <div class="top"><span>To: <span class="name">{{uname}}</span></span></div>
             <div class="chatContainer">
-                <div class="chat" data-chat="{{person}}">
+                <div class="chat active-chat" data-chat="{{person}}">
                     <div class="conversation-start">
                         <span>{{startTime}}</span>
                     </div>
